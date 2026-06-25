@@ -3,7 +3,110 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/).
 We are following the [Keep a Changelog](https://keepachangelog.com/) format.
 
-## [Unreleased](https://github.com/FredrikNoren/ungit/compare/v1.5.18...master)
+## [Unreleased](https://github.com/FredrikNoren/ungit/compare/v1.5.29...master)
+
+## [1.5.29](https://github.com/FredrikNoren/ungit/compare/v1.5.28...v1.5.29)
+
+### Changed
+- Update README.md [#1615](https://github.com/FredrikNoren/ungit/pull/1615)
+- Bump Dependencies [#1614](https://github.com/FredrikNoren/ungit/pull/1614), [#1645](https://github.com/FredrikNoren/ungit/pull/1645), [#1643](https://github.com/FredrikNoren/ungit/pull/1643), [#1641](https://github.com/FredrikNoren/ungit/pull/1641), [#1639](https://github.com/FredrikNoren/ungit/pull/1639), [#1636](https://github.com/FredrikNoren/ungit/pull/1636), [#1634](https://github.com/FredrikNoren/ungit/pull/1634), [#1632](https://github.com/FredrikNoren/ungit/pull/1632), [#1630](https://github.com/FredrikNoren/ungit/pull/1630), [#1629](https://github.com/FredrikNoren/ungit/pull/1629), [#1626](https://github.com/FredrikNoren/ungit/pull/1626), [#1624](https://github.com/FredrikNoren/ungit/pull/1624), [#1620](https://github.com/FredrikNoren/ungit/pull/1620), [#1619](https://github.com/FredrikNoren/ungit/pull/1619), [#1616](https://github.com/FredrikNoren/ungit/pull/1616), [#1592](https://github.com/FredrikNoren/ungit/pull/1592)
+- Migrate to eslint flat config [#1607](https://github.com/FredrikNoren/ungit/pull/1607)
+- Bump formidable from 3.5.2 to 3.5.4 [#1617](https://github.com/FredrikNoren/ungit/pull/1617)
+- show remote fetch / push url in title [#1618](https://github.com/FredrikNoren/ungit/pull/1618)
+- Bump qs from 6.14.1 to 6.14.2 [#1644](https://github.com/FredrikNoren/ungit/pull/1644)
+- Bump actions/upload-artifact to 7 [#1649](https://github.com/FredrikNoren/ungit/pull/1649)
+
+## [1.5.28](https://github.com/FredrikNoren/ungit/compare/v1.5.27...v1.5.28)
+
+### Fixes
+- Enable git fetch again [#1604](https://github.com/FredrikNoren/ungit/pull/1604)
+
+### Changed
+- Bump Dependencies https://github.com/FredrikNoren/ungit/commit/dd9b7a35c92fafc3883a2ad7d04814049e04406a, https://github.com/FredrikNoren/ungit/commit/7e4e830cb71bdcbdd92d903419e1ad5e23a5ddc2, https://github.com/FredrikNoren/ungit/commit/944835dc8627c767c7145dad94b9fb4a2028e685, https://github.com/FredrikNoren/ungit/commit/ea063f47acf1f733b2a0af80d9c94293c3d880b7
+- CI Fixes https://github.com/FredrikNoren/ungit/commit/c02db509c2c334e7541e8f3dea4f615c7a614ccb, https://github.com/FredrikNoren/ungit/commit/a32668649836d7fd382574615333807ef3eed370, https://github.com/FredrikNoren/ungit/commit/7349b941a58f95117801fa36029fd44769dee8f8, 
+- Replace node 21 with 22 https://github.com/FredrikNoren/ungit/commit/571d03f5fd9f4dca073152b123f117b5fb9bde8b
+
+## [1.5.27](https://github.com/FredrikNoren/ungit/compare/v1.5.26...v1.5.27)
+
+### Added
+- Show parent commit ids and try to select them on click [#1581](https://github.com/FredrikNoren/ungit/issues/1581)
+
+### Changed
+- Use monospace font-family in commit body [#1598](https://github.com/FredrikNoren/ungit/pull/1598)
+- Change watcher to properly filter ignored directories [#1597](https://github.com/FredrikNoren/ungit/pull/1597)
+
+## [1.5.26](https://github.com/FredrikNoren/ungit/compare/v1.5.25...v1.5.26)
+
+### Changed
+- Bump Dependencies [#1584](https://github.com/FredrikNoren/ungit/pull/1584), [#1585](https://github.com/FredrikNoren/ungit/pull/1585), [#1587](https://github.com/FredrikNoren/ungit/pull/1587), [#1586](https://github.com/FredrikNoren/ungit/pull/1586)
+
+## [1.5.25](https://github.com/FredrikNoren/ungit/compare/v1.5.24...v1.5.25)
+
+### Changed
+- Bump Dependencies [#1566](https://github.com/FredrikNoren/ungit/pull/1566), [#1571](https://github.com/FredrikNoren/ungit/pull/1571), [#1574](https://github.com/FredrikNoren/ungit/pull/1574), [#1578](https://github.com/FredrikNoren/ungit/pull/1578)
+
+## [1.5.24](https://github.com/FredrikNoren/ungit/compare/v1.5.23...v1.5.24)
+
+### Fixes
+- Fallback for font if bundled font dont support glyphs [#1564](https://github.com/FredrikNoren/ungit/pull/1564)
+
+### Changed
+- Bump Dependencies [#1555](https://github.com/FredrikNoren/ungit/pull/1555), [#1559](https://github.com/FredrikNoren/ungit/pull/1559), [#1560](https://github.com/FredrikNoren/ungit/pull/1560), [#1561](https://github.com/FredrikNoren/ungit/pull/1561), [#1563](https://github.com/FredrikNoren/ungit/pull/1563)
+
+## [1.5.23](https://github.com/FredrikNoren/ungit/compare/v1.5.22...v1.5.23)
+
+### Fixes
+- Ungit returns 0 when wrong arguments are used [#1548](https://github.com/FredrikNoren/ungit/issues/1548)
+- Server process keeps running when parent gets killed [#1552](https://github.com/FredrikNoren/ungit/issues/1552)
+
+### Changed
+- Bump Dependencies [#1542](https://github.com/FredrikNoren/ungit/pull/1542), [#1545](https://github.com/FredrikNoren/ungit/pull/1545), [#1551](https://github.com/FredrikNoren/ungit/pull/1551)
+
+## [1.5.22](https://github.com/FredrikNoren/ungit/compare/v1.5.21...v1.5.22)
+
+### Fixes
+- build: fix memory use by building serially [#1529](https://github.com/FredrikNoren/ungit/pull/1529)
+- Small fixes and cleanups [#1530](https://github.com/FredrikNoren/ungit/pull/1530)
+
+### Changed
+- Update README.md [#1526](https://github.com/FredrikNoren/ungit/pull/1526)
+- Update git version dependency to 2.34.x [#1536](https://github.com/FredrikNoren/ungit/pull/1536)
+- Use fork to spawn a new node process [#1537](https://github.com/FredrikNoren/ungit/pull/1537)
+- CI: git allow file protocol which is used in submodule tests [#1540](https://github.com/FredrikNoren/ungit/pull/1540)
+- Bump Dependencies [#1525](https://github.com/FredrikNoren/ungit/pull/1525), [#1531](https://github.com/FredrikNoren/ungit/pull/1531), [#1533](https://github.com/FredrikNoren/ungit/pull/1533)
+
+## [1.5.21](https://github.com/FredrikNoren/ungit/compare/v1.5.20...v1.5.21)
+
+### Fixes
+- fix patch checkbox html [#1517](https://github.com/FredrikNoren/ungit/pull/1517)
+
+### Changed
+- Bump Dependencies [#1512](https://github.com/FredrikNoren/ungit/pull/1512), [#1518](https://github.com/FredrikNoren/ungit/pull/1518)
+
+### Removed
+- Remove node 12 from build matrix [#1516](https://github.com/FredrikNoren/ungit/pull/1516)
+
+## [1.5.20](https://github.com/FredrikNoren/ungit/compare/v1.5.19...v1.5.20)
+
+### Fixes
+- Fix potential remote code exec [#1510](https://github.com/FredrikNoren/ungit/pull/1510)
+- Fix intermittent test failures [#1495](https://github.com/FredrikNoren/ungit/issues/1495)
+- lint: small bugs + jsdoc [#1504](https://github.com/FredrikNoren/ungit/pull/1504)
+
+### Changed
+- Bump Dependencies [#1503](https://github.com/FredrikNoren/ungit/pull/1503)
+
+## [1.5.19](https://github.com/FredrikNoren/ungit/compare/v1.5.18...v1.5.19)
+
+### Added
+- Add Tab Size Configuration [#1499](https://github.com/FredrikNoren/ungit/pull/1499)
+- Types: add support for VSCode IntelliSense [#1466](https://github.com/FredrikNoren/ungit/pull/1466)
+
+### Changed
+- Directory view [#1491](https://github.com/FredrikNoren/ungit/pull/1491)
+- Node watch [#1465](https://github.com/FredrikNoren/ungit/pull/1465)
+- Bump cached-path-relative from 1.0.2 to 1.1.0 [#1501](https://github.com/FredrikNoren/ungit/pull/1501)
+- Bump Dependencies [#1483](https://github.com/FredrikNoren/ungit/pull/1483), [#1487](https://github.com/FredrikNoren/ungit/pull/1487), [#1492](https://github.com/FredrikNoren/ungit/pull/1492), [#1494](https://github.com/FredrikNoren/ungit/pull/1494)
 
 ## [1.5.18](https://github.com/FredrikNoren/ungit/compare/v1.5.17...v1.5.18)
 

@@ -1,7 +1,7 @@
 ungit
 ======
-[![NPM version](https://badge.fury.io/js/ungit.svg)](https://badge.fury.io/js/ungit)
-[![Build Status](https://travis-ci.org/FredrikNoren/ungit.svg)](https://travis-ci.org/FredrikNoren/ungit)
+[![Release](https://img.shields.io/github/v/release/FredrikNoren/ungit)](https://github.com/FredrikNoren/ungit/releases)
+[![CI](https://github.com/FredrikNoren/ungit/actions/workflows/ci.yml/badge.svg)](https://github.com/FredrikNoren/ungit/actions/workflows/ci.yml)
 [![Join the chat at https://gitter.im/FredrikNoren/ungit](https://badges.gitter.im/FredrikNoren/ungit.svg)](https://gitter.im/FredrikNoren/ungit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 The easiest way to use git. On any platform. Anywhere.
@@ -26,7 +26,7 @@ Quick intro to ungit: [https://youtu.be/hkBVAi3oKvo](https://youtu.be/hkBVAi3oKv
 
 Installing
 ----------
-Requires [node.js](https://nodejs.org) (≥ 12), [npm](https://www.npmjs.com/) (≥ 6.14.12, comes with node.js) and [git](https://git-scm.com/) (≥ 1.8.x). To install ungit just type:
+Requires [node.js](https://nodejs.org) (≥ 20.19.0), [npm](https://www.npmjs.com/) (≥ 10.8.2, comes with node.js) and [git](https://git-scm.com/) (≥ 2.34.x). To install ungit just type:
 
 	npm install -g ungit
 
@@ -34,7 +34,7 @@ NOTE: If your system requires root access to install global npm packages, make s
 
 	sudo -H npm install -g ungit
 
-Prebuilt [electron](https://electronjs.org/) packages are avaiable [here](https://github.com/FredrikNoren/ungit/releases) (git is still required).
+Prebuilt [electron](https://electronjs.org/) packages are available [here](https://github.com/FredrikNoren/ungit/releases) (git is still required).
 
 Using
 -----
@@ -88,8 +88,6 @@ Auto Refresh
 ------------
 Ungit will watch git directory recursively upon page view and automatically refresh contents on git operations or changes on files that are not configured to be ignored in `.gitignore`.
 
-One caveat is that node's [`fs.watch()`](https://nodejs.org/docs/latest/api/fs.html#fs_fs_watch_filename_options_listener) with `recursive: true` option is only available in Mac and Windows.  For non Mac and Windows machines, git operations will be automatically refreshed but file changes may require manual refreshes as `fs.watch()` is unable to detect changes within nested directory hierarchy.
-
 Text Editor Integrations
 -------------------
 
@@ -100,10 +98,6 @@ Text Editor Integrations
 * [brackets-ungit](https://github.com/Hirse/brackets-ungit) for [Brackets.io](http://brackets.io/) by [@Hirse](https://github.com/Hirse)
 
 ![brackets-ungit Screenshot](https://raw.githubusercontent.com/Hirse/brackets-ungit/master/images/viewer.png)
-
-* [Codiad-OpenUngit](https://github.com/viharm/Codiad-OpenUngit) for [Codiad](http://codiad.com/) by [@viharm](https://github.com/viharm)
-
-![Codiad-OpenUngit screenshot](https://cloud.githubusercontent.com/assets/2663937/21566609/6d107410-ce9c-11e6-91e1-2d8a1607b718.png)
 
 * [vscode-ungit](https://marketplace.visualstudio.com/items?itemName=Hirse.vscode-ungit) for [Visual Studio Code](https://code.visualstudio.com/) by [@Hirse](https://github.com/Hirse)
 

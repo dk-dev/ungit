@@ -5,7 +5,8 @@ const path = require('path');
 const browserify = require('browserify');
 const exorcist = require('exorcist');
 const less = require('less');
-const mkdirp = require('mkdirp');
+const mkdirp = require('mkdirp').mkdirp;
+const tsify = require('tsify');
 
 const baseDir = path.join(__dirname, '..');
 
@@ -31,7 +32,7 @@ const baseDir = path.join(__dirname, '..');
       const componentPath = path.join(baseDir, `components/${component}/${component}`);
       try {
         await fs.access(`${componentPath}.less`);
-      } catch (e) {
+      } catch {
         /* ignore */
         return;
       }
@@ -52,7 +53,6 @@ const baseDir = path.join(__dirname, '..');
   b.require(path.join(publicSourceDir, 'program-events.js'), { expose: 'ungit-program-events' });
   b.require(path.join(publicSourceDir, 'storage.js'), { expose: 'ungit-storage' });
   b.require(path.join(baseDir, 'source/address-parser.js'), { expose: 'ungit-address-parser' });
-  b.require('bluebird', { expose: 'bluebird' });
   b.require('blueimp-md5', { expose: 'blueimp-md5' });
   b.require('diff2html', { expose: 'diff2html' });
   b.require('jquery', { expose: 'jquery' });
@@ -62,6 +62,7 @@ const baseDir = path.join(__dirname, '..');
   b.require('moment', { expose: 'moment' });
   b.require('@primer/octicons', { expose: 'octicons' });
   b.require('signals', { expose: 'signals' });
+  b.require('winston', { expose: 'winston' });
   const ungitjsFile = path.join(baseDir, 'public/js/ungit.js');
   const mapFile = path.join(baseDir, 'public/js/ungit.js.map');
   await new Promise((resolve) => {
@@ -72,21 +73,27 @@ const baseDir = path.join(__dirname, '..');
   console.log(`browserify ${path.relative(baseDir, ungitjsFile)}`);
 
   console.log('browserify:components');
-  await Promise.all(
-    components.map(async (component) => {
-      const source = path.join(baseDir, `components/${component}/${component}.js`);
+  for (const component of components) {
+    console.log(`browserify:components:${component}`);
+    const sourcePrefix = path.join(baseDir, `components/${component}/${component}`);
+    const destination = path.join(baseDir, `components/${component}/${component}.bundle.js`);
+
+    const jsSource = `${sourcePrefix}.js`;
+    try {
+      await fs.access(jsSource);
+      await browserifyFile(jsSource, destination);
+    } catch {
+      const tsSource = `${sourcePrefix}.ts`;
       try {
-        await fs.access(source);
-      } catch (e) {
+        await fs.access(tsSource);
+        await browserifyFile(tsSource, destination);
+      } catch {
         console.warn(
-          `${source} does not exist. If this component is obsolete, please remove that directory or perform a clean build.`
+          `${sourcePrefix} does not exist. If this component is obsolete, please remove that directory or perform a clean build.`
         );
-        return;
       }
-      const destination = path.join(baseDir, `components/${component}/${component}.bundle.js`);
-      return browserifyFile(source, destination);
-    })
-  );
+    }
+  }
 
   // copy
   console.log('copy bootstrap fonts');
@@ -113,8 +120,8 @@ const baseDir = path.join(__dirname, '..');
 })();
 
 async function lessFile(source, destination) {
-  const input = await fs.readFile(source);
-  const output = await less.render(input.toString(), {
+  const input = await fs.readFile(source, { encoding: 'utf8' });
+  const output = await less.render(input, {
     filename: source,
     sourceMap: {
       outputSourceFiles: true,
@@ -132,7 +139,8 @@ async function browserifyFile(source, destination) {
     const b = browserify(source, {
       bundleExternal: false,
       debug: true,
-    });
+    }).plugin(tsify, {});
+
     const outFile = fsSync.createWriteStream(destination);
     outFile.on('close', () => resolve());
     b.bundle().pipe(exorcist(mapDestination)).pipe(outFile);
